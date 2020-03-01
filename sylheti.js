@@ -43,4 +43,6 @@ const sylhetiTable = {
   "e": "\0826",
   "oo": "\0827",
   "o": ""
-}
+};
+
+const inputBox = $("#input-text");
