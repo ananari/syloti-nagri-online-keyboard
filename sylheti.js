@@ -45,4 +45,13 @@ const sylhetiTable = {
   "o": ""
 };
 
-const inputBox = $("#input-text");
+function sylhetiReplacement(input) {
+  return input;
+}
+
+const inputBox = $("#input-text")[0];
+const outputBox = $("#output-text")[0];
+console.log(inputBox);
+inputBox.addEventListener("keyup", function(){
+  outputBox.value = sylhetiReplacement(inputBox.value);
+})
