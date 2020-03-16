@@ -47,14 +47,40 @@ const sylhetiTable = {
   "o": ""
 };
 
+for(const k in sylhetiTable) {
+  if(k.length > 1) {
+    table1[k] = sylhetiTable[k];
+  }
+  else {
+    table2[k] = sylhetiTable[k];
+  }
+}
+
 
 function sylhetiReplacement(input) {
   function capsMatch(match) {
     return match.toUpperCase()
   }
+  function sylhetiDigraph(string) {
+    for(const k in table1) {
+      let rx = new RegExp(k, 'g');
+      string = string.replace(rx, table1[k]);
+    }
+    return string;
+  }
+  function sylhetiMonograph(string) {
+    for(const k in table2) {
+      let rx = new RegExp(k, 'g');
+      string = string.replace(rx, table2[k]);
+    }
+    return string;
+  }
   input = input.replace(/(?<=[aeiu])[aeiou]|(?<=o)[aeu]/g, capsMatch);
   input = input.replace(/\b[aeiou]/g, capsMatch);
+  input = sylhetiDigraph(input);
+  input = sylhetiMonograph(input);
   return input;
+  
 }
 
 const inputBox = $("#input-text")[0];
