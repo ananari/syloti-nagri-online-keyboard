@@ -1,3 +1,5 @@
+let table1 = {};
+let table2 = {};
 const sylhetiTable = {
   'A': 'ꠀ',
   'I': 'ꠁ',
@@ -45,7 +47,13 @@ const sylhetiTable = {
   "o": ""
 };
 
+
 function sylhetiReplacement(input) {
+  function capsMatch(match) {
+    return match.toUpperCase()
+  }
+  input = input.replace(/(?<=[aeiu])[aeiou]|(?<=o)[aeu]/g, capsMatch);
+  input = input.replace(/\b[aeiou]/g, capsMatch);
   return input;
 }
 
