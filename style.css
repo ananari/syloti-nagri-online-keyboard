@@ -1,4 +1,4 @@
-.sylheti-box {
+#sylheti-box {
   font-family: "Surma", "Noto Sans Syloti Nagri";
 }
 
@@ -6,7 +6,13 @@
   border-spacing: 0px;
   border-collapse: collapse;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 #letters th, td {
   border: 1px solid black;
+}
+textarea {
+  width: 50%;
+  height: 100px;
 }
