@@ -59,8 +59,16 @@ for(const k in sylhetiTable) {
 
 function sylhetiReplacement(input) {
   function capsMatch(match) {
-    return match.toUpperCase()
+    console.log(match);
+    return match.toUpperCase();
   }
+  function vowelHandling(string){
+    let reversedString = string.split("").reverse().join("");
+    reversedString = reversedString.replace(/[aeiou](?=[aeiu])|[aeu](?=o)/g, capsMatch);
+    string = reversedString.split("").reverse().join("");
+    return string;
+  }
+
   function sylhetiDigraph(string) {
     for(const k in table1) {
       let rx = new RegExp(k, 'g');
@@ -75,7 +83,8 @@ function sylhetiReplacement(input) {
     }
     return string;
   }
-  input = input.replace(/(?<=[aeiu])[aeiou]|(?<=o)[aeu]/g, capsMatch);
+  // input = input.replace(/(?<=[aeiu])[aeiou]|(?<=o)[aeu]/g, capsMatch); keep this code in case new code fails
+  input = vowelHandling(input);
   input = input.replace(/\b[aeiou]/g, capsMatch);
   input = sylhetiDigraph(input);
   input = sylhetiMonograph(input);
